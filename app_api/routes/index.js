@@ -3,11 +3,6 @@ var router = express.Router();
 var jwt = require('express-jwt');
 
 
-var saludo = function(req,res){
-	res.status(200);
-  res.json({msj:"hola hoy la api de chata tu choro"});
-};
-
 var auth = jwt({
 	secret: process.env.JWT_SECRET,
 	userProperty: 'payload'
@@ -21,7 +16,6 @@ var ctrlAuth = require('../controllers/authentication');
 router.post( '/rol' ,rol.CrearUbicacion );
 router.post( '/rol/:rolid' ,rol.ActualizarUbicacion );
 router.get( '/rol' ,rol.getTodos );
-router.get( '/' ,saludo );
 
 // authentication
 router.post('/register', ctrlAuth.register);

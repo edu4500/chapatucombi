@@ -19,7 +19,6 @@ var app = express();
 // view engine setup
 var fs = require('fs');
 
-
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
@@ -30,6 +29,10 @@ app.use(passport.initialize());
 
 //app.use('/users', users);
 app.use('/api', indexApi);
+app.use('/',function(req,res){
+	res.status(200);
+  res.json({msj:"hola hoy la api de chata tu choro"});
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
